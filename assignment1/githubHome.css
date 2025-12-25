@@ -1,0 +1,164 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+body{
+    background-color: rgb(3, 3, 48);
+    color: white;
+}
+
+.block{
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding: 10px 50px;
+   /* padding-left: 5px;
+   padding-right: 20px; */
+    font-size: 14px;
+}
+
+/* .logo i{
+    
+     vertical-align: middle; 
+     margin-right: 5px; 
+} */
+
+.menu select{
+    margin: 0 5px;
+    text-decoration: none;
+    color: antiquewhite;
+    background-color:rgb(3, 3, 48) ;
+    border: none;
+    font-size: 14px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.menu a:hover{
+    color: beige;
+}
+
+/* .nav-buttons{
+    margin-left: 5px;
+    border-radius: 5px;
+    padding: 8px 15px;
+   
+} */
+
+.nav-buttons a{
+     text-decoration: none;
+     color: antiquewhite;
+     margin-left: 10px;
+     border-radius: 5px;
+     padding: 8px 15px;
+     font-size: 14px;
+}
+
+.nav-buttons input{
+     text-decoration: none;
+     color: antiquewhite;
+     margin-left: 5px;
+     border-radius: 5px;
+     padding: 5px 8px;
+     font-size: 14px;
+     color: black;
+     border: none;
+}
+
+.signin{
+    color: antiquewhite;
+}
+
+.signup{
+    /* background-color: antiquewhite; */
+    color: antiquewhite;
+    font-weight: bold;
+
+}
+.main-box{
+    text-align: center;
+    padding: 110px 20px;
+}
+
+.sub-box{
+    display: inline-block;
+    background-color: rgb(83, 30, 133);
+    padding: 10px 20px;
+    border-radius: 20px;
+    margin-bottom: 30px;
+    font-size: 14px;
+}
+
+.main-heading {
+    font-size: 42px;
+    /* line-height: 50px; */
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+.sub-text {
+    font-size: 16px;
+    color: #cfcfff;
+    margin-bottom: 40px;
+}
+
+.signup-box {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.signup-box input {
+    padding: 12px;
+    width: 250px;
+    border-radius: 8px;
+    border: none;
+}
+
+.btn-singup{
+padding: 12px 20px;
+border: none;
+border-radius: 30px;
+background-color: rgb(56, 141, 56);
+cursor:pointer;
+font-weight: bold;
+/* display: inline-flex ; */
+}
+
+.try-ai{
+    padding: 12px 20px;
+    border-radius: 8px;
+    background: transparent;
+    color:antiquewhite;
+    cursor: pointer;
+}
+
+.btn-signup:hover{
+    background-color: green;
+}
+/* nav{
+    display:block;
+    width: 100%;
+    gap: 50px;
+}
+.top-left{
+    display:inline-block ;
+    gap: 10px;
+    block-size: 80%;
+}
+.top-left select{
+    padding: 5px;
+}
+.top-right{
+    display: inline-block;
+    block-size: 19%;
+
+
+     gap: 25px; 
+     float: right; 
+}
+*/
+
