@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Space Launch Information Dashboard</title>
+</head>
+<body>
+
+    <h2>🚀 Space Launch Information Dashboard</h2>
+
+    <button onclick="loadLaunch()">Load Launch</button>
+
+    <p id="loading"></p>
+
+    <div id="launchDetails"></div>
+
+    <script>
+        function loadLaunch() {
+            const loadingMsg = document.getElementById("loading");
+            const details = document.getElementById("launchDetails");
+
+            loadingMsg.textContent = "Loading latest launch details...";
+            details.innerHTML = "";
+
+            fetch("https://api.spacexdata.com/v4/launches/latest")
+                .then(function(response) {
+                    return response.json();
+                })
+                .then(function(data) {
+                    loadingMsg.textContent = "";
+
+                    details.innerHTML = `
+                        <h3>Mission Name:</h3>
+                        <p>${data.name}</p>
+                    `;
+                })
+                .catch(function(error) {
+                    loadingMsg.textContent = "";
+                    details.innerHTML = "❌ Failed to load launch data";
+                });
+        }
+    </script>
+
+</body>
+</html>
