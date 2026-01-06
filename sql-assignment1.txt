@@ -1,0 +1,257 @@
+// to create employee table
+=============================
+CREATE TABLE employee (
+    emp_id NUMBER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    emp_name VARCHAR2(30),
+    gender VARCHAR2(10),
+    department VARCHAR2(20),
+    designation VARCHAR2(30),
+    salary NUMBER,
+    location VARCHAR2(20),
+    joining_date DATE,
+    email VARCHAR2(50)
+);
+
+//to insert data in table
+===========================
+INSERT INTO employee VALUES (
+    DEFAULT, 'Arun', 'Male', 'IT', 'Developer', 45000, 'Chennai',
+    DATE '2022-01-10', 'arun@company.com'
+);
+
+INSERT INTO employee VALUES (
+    DEFAULT, 'Divya', 'Female', 'HR', 'HR Executive', 40000, 'Bangalore',
+    DATE '2021-05-15', 'divya@company.com'
+);
+
+INSERT INTO employee VALUES (
+    DEFAULT, 'Mubeen', 'Male', 'IT', 'Senior Developer', 55000, 'Chennai',
+    DATE '2023-03-20', 'mubeen@company.com'
+);
+
+INSERT INTO employee VALUES (
+    DEFAULT, 'Ravi', 'Male', 'Finance', 'Accountant', NULL, 'Mumbai',
+    DATE '2020-07-18', 'ravi@company.com'
+);
+
+INSERT INTO employee VALUES (
+    DEFAULT, 'Anita', 'Female', 'Sales', 'Sales Executive', 38000, 'Delhi',
+    DATE '2022-09-12', 'anita@company.com'
+);
+
+INSERT INTO employee VALUES (
+    DEFAULT, 'Kumar', 'Male', 'HR', 'Recruiter', 32000, 'Chennai',
+    DATE '2021-11-05', 'kumar@company.com'
+);
+
+INSERT INTO employee VALUES (
+    DEFAULT, 'Divya', 'Female', 'IT', 'Tester', 40000, 'Bangalore',
+    DATE '2022-06-25', 'divya.it@company.com'
+);
+
+INSERT INTO employee VALUES (
+    DEFAULT, 'Rahul', 'Male', 'IT', 'Developer', 45000, 'Chennai',
+    DATE '2020-03-14', NULL
+);
+
+INSERT INTO employee VALUES (
+    DEFAULT, 'Sneha', 'Female', 'Finance', 'Analyst', NULL, 'Mumbai',
+    DATE '2023-01-08', 'sneha@company.com'
+);
+
+INSERT INTO employee VALUES (
+    DEFAULT, 'Amit', 'Male', 'Sales', 'Sales Manager', 60000, 'Delhi',
+    DATE '2019-12-01', 'amit@company.com'
+);
+
+INSERT INTO employee VALUES (
+    DEFAULT, 'Pooja', 'Female', 'HR', 'HR Executive', 40000, 'Chennai',
+    DATE '2021-04-19', NULL
+);
+
+INSERT INTO employee VALUES (
+    DEFAULT, 'Ramesh', 'Male', 'IT', 'Support Engineer', 30000, 'Hyderabad',
+    DATE '2022-08-10', 'ramesh@company.com'
+);
+
+INSERT INTO employee VALUES (
+    DEFAULT, 'Suresh', 'Male', 'IT', 'Developer', 45000, 'Chennai',
+    DATE '2020-10-30', 'suresh@company.com'
+);
+
+INSERT INTO employee VALUES (
+    DEFAULT, 'Neha', 'Female', 'Sales', 'Sales Executive', 38000, 'Delhi',
+    DATE '2023-02-14', 'neha@company.com'
+);
+
+INSERT INTO employee VALUES (
+    DEFAULT, 'Arun', 'Male', 'IT', 'Developer', 45000, 'Chennai',
+    DATE '2021-09-09', 'arun.it@company.com'
+);
+
+INSERT INTO employee VALUES (
+    DEFAULT, 'Kiran', 'Male', 'Finance', 'Accountant', NULL, 'Mumbai',
+    DATE '2022-12-21', 'kiran@company.com'
+);
+
+INSERT INTO employee VALUES (
+    DEFAULT, 'Meena', 'Female', 'HR', 'Recruiter', 32000, 'Bangalore',
+    DATE '2020-06-11', 'meena@company.com'
+);
+
+INSERT INTO employee VALUES (
+    DEFAULT, 'Vijay', 'Male', 'IT', 'Tester', 35000, 'Hyderabad',
+    DATE '2023-04-01', NULL
+);
+
+INSERT INTO employee VALUES (
+    DEFAULT, 'Anita', 'Female', 'Sales', 'Sales Executive', 38000, 'Delhi',
+    DATE '2021-07-07', 'anita.sales@company.com'
+);
+
+INSERT INTO employee VALUES (
+    DEFAULT, 'Rohit', 'Male', 'IT', 'Developer', 45000, 'Chennai',
+    DATE '2022-11-18', 'rohit@company.com'
+);
+
+INSERT INTO employee VALUES (
+    DEFAULT, 'Sanjay', 'Male', 'IT', 'Developer', NULL, 'Chennai',
+    DATE '2020-02-02', NULL
+);
+
+
+//queries on employee table
+============================
+
+1.Display all employee records
+SQL> select * from employee;
+
+2.Display only employee ID, name, and department.
+SQL> select emp_id,emp_name,department from employee;
+
+3.Display employee name and salary for all employees.
+SQL> select emp_name,salary from employee;
+
+4.Display employees whose salary is greater than 40,000.
+SQL> select * from employee where salary> 40000;
+
+5.Display employees whose salary is less than or equal to 35,000.
+SQL> select * from employee where salary<=35000;
+
+6.Display employees whose salary is exactly 45,000.
+SQL> select * from employee where salary=45000;
+
+7.Display employees who joined after 01-Jan-2022.
+SQL> select * from employee where joining_date> TO_DATE('01-01-2022', 'DD-MM-YYYY');
+
+8.Display employees who joined before 01-Jan-2021.
+SQL> select * from employee where joining_date< TO_DATE('01-01-2021', 'DD-MM-YYYY');
+
+9.Display employees whose salary is between 35,000 and 50,000.
+SQL> select * from employee where salary between 35000 and 50000;
+
+10.Display employees whose salary is not between 30,000 and 45,000.
+SQL> select * from employee where salary not between 30000 and 50000;
+
+11.Display employees whose joining date is between 01-Jan-2021 and 31-Dec-2022.
+SQL> SELECT * FROM employee WHERE joining_date BETWEEN DATE '2021-01-01' AND DATE '2022-12-31';
+
+12.Display employees working in IT or HR departments.
+SQL> select * from employee where department in('IT','HR');
+
+13.Display employees working in Chennai, Bangalore, or Hyderabad.
+SQL> select * from employee where location in('Chennai','Bangalore','Hyderabad');
+
+14.Display employees whose salary is IN (32000, 38000, 40000).
+SQL> select * from employee where salary in(32000, 38000, 40000);
+
+15.Display employees not working in Mumbai.
+SQL> select * from employee where location not in('Mumbai');
+
+16.Display employees whose department is not in IT and HR.
+SQL> select *from employees where dept not in(IT and HR);
+
+17.Display employees whose designation is not in Developer and Tester.
+SQL> select * from employees where designation not in(Developer and Tester);
+
+18.Display employees whose name starts with ‘A’.
+SQL>select * from employees where name like 'A%';
+
+19.Display employees whose salary is NULL.
+SQL>select * from employees where salary =NULL;
+
+20.Display employees whose email is NULL.
+SQL>select * from employees where email=NULL;
+
+21.Display employees whose salary is NOT NULL.
+SQL>select *from employees where salary!=null;
+
+22.Display employees whose email is NOT NULL.
+SQL> select*from employees where email !=NULL;
+
+23.Display employees whose name ends with ‘i’.
+SQL> select * from employees where name like '%i';
+
+24.Display employees whose name contains ‘vi’.
+SQL> select * from employees where name like '%vi%';
+
+25.Display employees whose email contains ‘@company.com’.
+SQL> select *from employees where email like '%@company.com%';
+
+26.Display employees whose designation ends with ‘Engineer’.
+SQL> select * rom employees where designation like '%Engineer';
+
+27.Display all employees ordered by salary ascending.
+SQL> select * from employees ORDER BY salary ASC;
+
+28.Display employees ordered by department ASC and salary DESC.
+SQL> select * from employees ORDER BY department, salary DESC;
+
+29.Display employees ordered by location ASC and employee name ASC.
+SQL> SELECT * FROM employees order by location, employee name desc;
+
+30.Display employees working in IT department AND salary > 45,000.
+SQL>select * from employees where department='IT' and salary>45000;
+
+31.Display employees working in HR OR Sales department.
+SQL>select * from employees where dept in('HR' , 'Sales');
+
+32.Update salary to 50,000 for employees whose salary is NULL.
+SQL>update employee modify salary=50000 where salary IS NULL;
+
+33.Increase salary by 5,000 for all IT employees.
+SQL>update employees modify salary=salary+5000 where department='IT';
+
+
+34.Display employees having the same name more than once.
+SQL>select name from employees group by name having count(*)>1;
+
+
+35.Display employees having the same salary.
+SQL>select salary from employees group by salary having count(*)>1;
+
+
+36.Display employees working in the same department and same location.
+SQL>select department,location from employees group by department,location having count(*)>1;
+
+37.Update location to Hyderabad for employees working in HR.
+SQL>update employees modify location='Hyderabad' where department='HR';
+
+38.Display employees NOT working in IT department.
+SQL>select * from employees where department NOT IN('IT');
+
+39.Display employees working in IT AND located in Chennai.
+SQL>select * from employees where department='IT' AND location='Chennai';
+
+40.Display employees ordered by salary DESC and joining date ASC.
+SQL>select * from employees order by salary desc,joining_date;
+
+41.Display all employees ordered by salary descending.
+SQL> select * from employee order by salary desc;
+
+42.Display all employees ordered by joining date ascending.
+SQL> select * from employee order by joining_date;
+
+43.Display all employees ordered by employee name alphabetically.
+SQL> select * from employee order by emp_name;
+
