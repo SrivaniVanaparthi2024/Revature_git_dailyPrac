@@ -1,0 +1,75 @@
+1. List all employees with their department name and location.
+  select 
+	e.emp_name,
+ 	e.job_title, 
+	e.salary, 
+	e.hire_date,	
+	d.dept_name,d.location
+    from emp _details e, department d
+    where e.dept_id = d.dept_id;       
+
+
+2. List employees who are assigned to a project, showing employee name + project name + role.
+      select
+	 e.emp_name,
+	 pr.project_name,
+	 p.role_name 
+	from emp_details e
+        inner join exp_project p on e.emp_id = p.emp_id
+        inner join project pr on p.project_id = pr.project_id;      
+
+3. Show all departments, and employee names if present (departments with no employees must appear).
+     select d.dept_name, e.emp_name
+       from department d left outer join emp_details e
+        on d.dept_id = e.dept_id;      
+
+4. Show all projects, and assigned employee names if present (projects with no employees must appear).
+       select
+	 p.project_name,
+	 e.emp_name
+	from project p left outer join exp_project ep on p.project_id = ep.project_id 
+	left outer join emp_details e on ep.emp_id = e.emp_id;       
+
+
+5. Show all employees, including those without a department (dept fields can be null).
+      select
+	 e.emp_name,
+	 d.dept_name
+        from emp_details e right outer join department d on e.dept_id = d.dept_id;      
+
+6. Show all departments and all employees, even when there is no match (unmatched rows from both sides)
+       select
+	 e.emp_name,
+	 d.dept_name 
+	from emp_details e
+        full outer join department d on e.dept_id = d.dept_id;       
+
+7. Create a “planning matrix”: every department combined with every salary grade.
+        select
+	   d.dept_name,
+	   d.location,
+	   s.min_sal,
+	   s.max_sal 
+	 from department d
+         cross join sal_grade s;      
+
+
+8. Show employee name and their manager name (employees without manager should still show).
+        select
+	   e.emp_name,
+	   m.emp_name 
+	 from emp_details e 
+	 left outer join emp_details m on e.emp_id = m.manager_id;      
+
+9. Join emp and dept using dept _id with USING (dept _id) and display columns cleanly.
+      select
+	 emp_name, dept_name, location
+	 from emp_details
+         inner join department using(dept _id);      
+
+10. Assign a grade to each employee based on salary using sal _grade (salary between min _sal and max _sal).
+        select
+	  e.emp_name, e.salary, s.grade 
+	  from emp_details e 
+	  join sal_grade s on e.salary between s.min_sal and s.max_sal;      
+

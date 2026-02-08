@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple To-Do List</title>
+</head>
+<body>
+
+    <h2>To-Do List</h2>
+
+    <input type="text" id="taskInput" placeholder="Enter a task">
+    <button onclick="addTask()">Add Task</button>
+
+    <h3>Tasks:</h3>
+    <ul id="taskList"></ul>
+
+    <script>
+        let tasks = new Array(); 
+
+        function addTask() {
+            const input = document.getElementById("taskInput");
+            const task = input.value;
+
+            if(task === "") {
+                alert("Please enter a task!");
+                return;
+            }
+
+            tasks.push(task);  
+            input.value = ""; 
+            displayTasks(); 
+        }
+
+        function displayTasks() {
+            const list = document.getElementById("taskList");
+            list.innerHTML = ""; 
+
+            tasks.forEach((task, index) => {
+                const li = document.createElement("li");
+                li.textContent = task;
+                list.appendChild(li);
+            });
+        }
+    </script>
+
+</body>
+</html>
