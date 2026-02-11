@@ -2,11 +2,12 @@ package com.example.demo.entity;
 
 import jakarta.persistence.*;
 
-
 @Entity
-@Table(name="cart_items",uniqueConstraints=@UniqueConstraint(name="uq_cart_product",columnNames= {"cart_id","product_id"}))
+@Table(name="cart_items",
+       uniqueConstraints = @UniqueConstraint(name="uq_cart_product", columnNames = {"cart_id","product_id"}))
 public class CartItem {
-	@Id
+
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
