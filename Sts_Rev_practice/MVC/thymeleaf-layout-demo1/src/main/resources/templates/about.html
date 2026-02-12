@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="layout/base :: layout(~{::main}, ${title})">
+
+<main>
+  <h3>About</h3>
+  <p th:text="${message}">Default about message</p>
+</main>
+
+</html>

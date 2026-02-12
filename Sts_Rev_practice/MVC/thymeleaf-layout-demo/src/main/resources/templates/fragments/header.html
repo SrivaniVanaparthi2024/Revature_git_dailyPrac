@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<body>
+		<div th:fragment="header(title)">
+			<header style="background-color: lightblue; padding: 10px;">
+				<h2>My Spring MVC App<span th:text="${title}"></span></h2>
+				<a th:href="@{/}">Home</a>
+				<a th:href="@{/about}">About</a>
+			</header>
+		</div>
+	</body>
+</html>

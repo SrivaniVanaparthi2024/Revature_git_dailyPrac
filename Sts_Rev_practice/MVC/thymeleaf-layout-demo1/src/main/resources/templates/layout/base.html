@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"  th:fragment="layout(content, pageTitle)">
+<head>
+   <title th:text="${pageTitle}">Default Title</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body style="font-family: Arial; margin:20px;">
+
+  <!-- HEADER -->
+  <div th:replace="fragments/header :: siteHeader"></div>
+
+  <!-- NAVBAR -->
+  <div th:replace="fragments/navbar :: siteNav"></div>
+
+  <!-- PAGE CONTENT (dynamic) -->
+  <main th:replace="${content}"></main>
+
+  <!-- FOOTER -->
+  <div th:replace="fragments/footer :: siteFooter"></div>
+
+</body>
+</html>
